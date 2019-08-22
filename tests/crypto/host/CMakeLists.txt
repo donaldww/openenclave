@@ -21,7 +21,8 @@ if (UNIX)
     ../asn1_tests.c)
 endif()
 
-set(SRCS
+add_executable(hostcrypto
+  ${PLATFORM_SRC}
   main.c
   ../crl_tests.c
   ../ec_tests.c
@@ -34,10 +35,6 @@ set(SRCS
   ../sha_tests.c
   ../tests.c
   ../utils.c)
-
-add_executable(hostcrypto
-  ${PLATFORM_SRC}
-  ${SRCS})
 
 add_dependencies(hostcrypto crypto_test_data)
 target_link_libraries(hostcrypto oehost)
